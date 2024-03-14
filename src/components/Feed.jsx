@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import { SideBar, Videos } from "./";
 
 import { fetchFromAPI } from "../utils/fetchFromApi";
+import { Videos, SideBar } from "./";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState(null);
 
   useEffect(() => {
+    setVideos(null);
+
     fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      setVideos(data)
+      setVideos(data.items)
     );
   }, [selectedCategory]);
 
@@ -27,12 +29,13 @@ const Feed = () => {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
+
         <Typography
           className="copyright"
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
-          Copyright 2024 MZ Media
+          Copyright © 2022 JSM Media
         </Typography>
       </Box>
 
@@ -43,7 +46,7 @@ const Feed = () => {
           mb={2}
           sx={{ color: "white" }}
         >
-          {selectedCategory} <span style={{ color: "#F31503" }}>vidoes</span>
+          {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
         <Videos videos={videos} />

@@ -27,7 +27,7 @@ const VideoCard = ({
     >
       <Link to={videoId ? `video/${videoId}` : demoVideoUrl}>
         <CardMedia
-          image={snippet?.thummbnails?.high?.url}
+          image={snippet?.thummbnails?.high?.url || demoThumbnailUrl}
           alt={snippet?.title}
           sx={{ width: 358, height: 180 }}
         />
@@ -46,8 +46,8 @@ const VideoCard = ({
           }
         >
           <Typography variant="subtitle2" fontWeight="bold" color="gray">
-            {snippet?.channelTitle || demoChannelTitle}{" "}
-            <CheckCircle sx={{ fontSize: 12, color: "gray", ml: "5px" }} />{" "}
+            {snippet?.channelTitle || demoChannelTitle}
+            <CheckCircle sx={{ fontSize: 12, color: "gray", ml: "5px" }} />
           </Typography>
         </Link>
       </CardContent>
