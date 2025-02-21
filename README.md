@@ -22,6 +22,6 @@ This YouTube clone page, built with the ReactJS framework and styled with CSS, s
 
 ## <a name="link-page">🔋 Link to Page</a>
 
-- Live Site URL: [Github Page](https://camping-app-l4w5.onrender.com/)
+- Live Site URL: [Github Page](https://hilarious-buttercream-3fa625.netlify.app/)
 
 ## <a name="improvements">🛠️ Improvements Ideas</a>
